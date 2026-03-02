@@ -67,16 +67,15 @@ function buildInsertSql(tableName, rows) {
 }
 
 async function main() {
-  const csvPath = path.join(__dirname, "..", "teste.csv");
+  const csvPath = path.join(__dirname, "..", "teste-50.csv");
   const outputPath = path.join(__dirname, "..", "insert.txt");
 
   try {
     const dados = await parseCsvToObjects(csvPath);
     console.log(`Total de registros: ${dados.length}`);
-
-    const sql = buildInsertSql(TABLE_NAME, dados);
-    fs.writeFileSync(outputPath, sql, "utf8");
-    console.log(`Arquivo gerado: ${outputPath}`);
+console.log(dados[0])
+console.log(dados[1])
+    return
   } catch (err) {
     console.error("Erro ao ler/parsear o CSV ou gravar o arquivo:", err.message);
     process.exit(1);
